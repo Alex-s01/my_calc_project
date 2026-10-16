@@ -1,4 +1,4 @@
-class Engine():
+class Engine:
     def __init__(self):
         self.acc = ""
 
