@@ -19,7 +19,5 @@ class Engine:
         try:
             self.acc = str(eval(self.acc))
         except:
-            return "Error! Press C and try again."
-        else:
-            return self.acc
+            self.acc = "Error! Press C and try again."
 
