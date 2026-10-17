@@ -10,7 +10,7 @@ requires-python = ">=3.12"
 dependencies = []
 
 [project.scripts]
-calc = "my_calc_project:main"
+calc = "my_calc_project.main:main"
 
 [build-system]
 requires = ["uv_build>=0.12.3,<0.13.0"]
