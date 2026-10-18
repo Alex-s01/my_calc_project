@@ -30,16 +30,23 @@ class Gui:
             for x in range(3):
                 self.number_button = tk.Button(
                         self.button_container,
-                        text = f"{self.number}",
-                        command = lambda i = self.number: self.click_button(i)
+                        text = str(self.number),
+                        command = lambda i = self.number: self.click_button(str(i))
                         )
                 self.number_button.grid(row = y, column = x, sticky = "nsew")
                 self.number += 1
 
-        self.button_zero = tk.Button(self.button_container, text = "0")
+        self.button_zero = tk.Button(
+                self.button_container,
+                text = "0",
+                command = lambda: self.click_button("0"))
         self.button_zero.grid(row = 3, column = 1, sticky = "nsew")
 
-        self.button_dot = tk.Button(self.button_container, text = ".")
+        self.button_dot = tk.Button(
+                self.button_container,
+                text = ".",
+                command = lambda: self.click_button(".")
+                )
         self.button_dot.grid(row = 4, column = 0, sticky = "nsew")
 
         self.button_open_bracket = tk.Button(
@@ -49,7 +56,10 @@ class Gui:
                 )
         self.button_open_bracket.grid(row = 3, column = 0, sticky = "nsew")
 
-        self.button_close_bracket = tk.Button(self.button_container, text = ")")
+        self.button_close_bracket = tk.Button(
+                self.button_container,
+                text = ")",
+                command = lambda: self.click_button(")"))
         self.button_close_bracket.grid(row = 3, column = 2, sticky = "nsew")
 
         self.button_delete = tk.Button(
@@ -73,10 +83,18 @@ class Gui:
                 )
         self.button_clear.grid(row = 4, column = 1, sticky = "nsew")
 
-        self.button_divide = tk.Button(self.button_container, text = "/")
+        self.button_divide = tk.Button(
+                self.button_container,
+                text = "/",
+                command = lambda: self.click_button("/")
+                )
         self.button_divide.grid(row = 3, column = 3, sticky = "nsew")
 
-        self.button_multiply = tk.Button(self.button_container, text = "*")
+        self.button_multiply = tk.Button(
+                self.button_container,
+                text = "*",
+                command = lambda: self.click_button("*")
+                )
         self.button_multiply.grid(row = 2, column = 3, sticky = "nsew")
 
         self.button_minus = tk.Button(
