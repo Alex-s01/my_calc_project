@@ -11,7 +11,7 @@ class Gui:
 
 
         self.display_var = tk.StringVar()
-        self.display_frame = tk.Frame(self.win, bd = 1, relief = "solid")
+        self.display_frame = tk.Frame(self.win, bd = 1, relief = "sunken")
         self.display_frame.columnconfigure(0, weight = 1)
         self.display_frame.rowconfigure(0, weight = 1)
         self.display_label = tk.Label(self.display_frame, font = ("arial", 19), textvariable = self.display_var)
@@ -19,7 +19,7 @@ class Gui:
         self.display_frame.place(relx = 0.03, rely = 0.03, relwidth = 0.94, relheight = 0.20)
 
 
-        self.button_container = tk.Frame(self.win, bd = 1, relief = "solid")
+        self.button_container = tk.Frame(self.win, bd = 1, relief = "sunken")
 
         for i in range(4):
             self.button_container.columnconfigure(i, weight = 1, uniform = "col_button_cont_group")
