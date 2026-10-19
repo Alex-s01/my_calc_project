@@ -22,7 +22,12 @@ class Engine:
         try:
             self.acc = str(eval(self.acc))
         except:
-            self.acc = "Error! Press clear."
+            self.acc = "Error! Press clear"
+        else:
+            if "." in self.acc:
+                dot_index = self.acc.index(".")
+                if self.acc[dot_index + 1:] == "0":
+                    self.acc = str(round(float(self.acc)))
 
     def _get_last(self):
         if self.acc:
