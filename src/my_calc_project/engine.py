@@ -23,6 +23,8 @@ class Engine:
         return self.acc
 
     def calculate(self):
+        if not self.acc:
+            return
         try:
             self.acc = str(eval(self.acc))
         except:
