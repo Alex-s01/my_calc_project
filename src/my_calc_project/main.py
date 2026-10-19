@@ -1,5 +1,6 @@
-from my_calc_project.GUI import Gui
 import tkinter as tk
+
+from my_calc_project.GUI import Gui
 
 
 def main():
