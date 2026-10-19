@@ -4,7 +4,7 @@ class Engine:
         self.single_char = "+-/*."
 
     def append(self, symbol: str):
-        if self._get_last() in self.single_char and symbol in self.single_char:
+        if self.acc and self.acc[-1:] in self.single_char and symbol in self.single_char:
             self.delete()
         if self.acc == "Error! Press clear":
             self.clear()
@@ -32,9 +32,3 @@ class Engine:
         else:
             if self.acc.endswith(".0"):
                 self.acc = self.acc[:-2]
-
-    def _get_last(self):
-        if self.acc:
-            return self.acc[-1]
-        else:
-            return "Empty"
