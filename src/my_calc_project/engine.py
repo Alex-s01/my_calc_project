@@ -6,6 +6,8 @@ class Engine:
     def append(self, symbol: str):
         if self.acc and self.acc[-1:] in self.single_char and symbol in self.single_char:
             self.delete()
+        if "." in self.acc and symbol == ".":
+            return
         if self.acc == "Error! Press clear":
             self.clear()
         self.acc = f"{self.acc}{symbol}"
