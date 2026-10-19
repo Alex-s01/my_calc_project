@@ -1,0 +1,39 @@
+name: Build Binaries
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Скачиваем код репозитория
+        uses: actions/checkout@v4
+
+      - name: Устанавливаем Python 3.12 (со встроенным Tkinter)
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Устанавливаем python3-tk (только для Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y python3-tk
+
+      - name: Устанавливаем проект и PyInstaller
+        run: |
+          pip install .
+          pip install pyinstaller
+
+      - name: Собираем бинарник
+        run: pyinstaller --onefile --noconsole --name Calculator ./src/my_calc_project/main.py
+
+      - name: Выгружаем готовый файл во вкладку Actions
+        uses: actions/upload-artifact@v4
+        with:
+          name: Calculator-${{ runner.os }}
+          path: dist/
