@@ -28,10 +28,8 @@ class Engine:
         except:
             self.acc = "Error! Press clear"
         else:
-            if "." in self.acc:
-                dot_index = self.acc.index(".")
-                if self.acc[dot_index + 1:] == "0":
-                    self.acc = str(round(float(self.acc)))
+            if self.acc.endswith(".0"):
+                self.acc = self.acc[:-2]
 
     def _get_last(self):
         if self.acc:
