@@ -1,6 +1,6 @@
 [project]
 name = "my-calc-project"
-version = "0.1.4"
+version = "0.1.5"
 description = "I'm creating my own calculator on Python."
 readme = "README.md"
 authors = [
