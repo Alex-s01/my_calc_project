@@ -29,7 +29,7 @@ class Engine:
             return
         try:
             self.acc = str(eval(self.acc))
-        except:
+        except (SyntaxError, ZeroDivisionError, TypeError, NameError):
             self.acc = "Error! Press clear"
         else:
             if self.acc.endswith(".0"):
